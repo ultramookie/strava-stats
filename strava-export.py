@@ -4,11 +4,6 @@ import json
 import urllib
 import urllib2
 import time
-
-# Sign up for a new app here
-# http://www.strava.com/developers
-# Aftewards, get Access Token from
-# https://www.strava.com/settings/api
  
 ACCESS_TOKEN = ''
  
@@ -22,7 +17,7 @@ url = "/v3/activities/?access_token=" + ACCESS_TOKEN + "&per_page=" + str(per_pa
 
 file = open('strava.txt','w+')
 
-file.write("Date : Distance : Pace : Duration : Ave HR : Max HR : Average Speed : Max Speed\n")
+file.write("Date : Distance : Pace : Duration : Avg HR : Max HR : Avg Speed : Max Speed : Avg Cadence : Elevation Gain\n")
 
 while num_activities == per_page:
 	page=page+1
@@ -44,7 +39,8 @@ while num_activities == per_page:
 			file.write('\n')
 			file.write('--' + current_month + '--\n')
 		
-
+		elevationgain = activity.get('total_elevation_gain')		
+		avgcadence = activity.get('average_cadence')
 		avgheartrate = activity.get('average_heartrate')
 		maxheartrate = activity.get('max_heartrate')
 		avgspeed = '%.2f' % round(float(activity.get('average_speed') * 2.2369362920544),2)
@@ -66,6 +62,6 @@ while num_activities == per_page:
 		durhours, durrem = divmod(duration_seconds, 3600)
 		durmins, dursecs = divmod(durrem,60)
 
-		file.write(str(date) + " : " + distance.ljust(5) + "mi " + pace.ljust(11) + "" + str(durhours).rjust(2, '0') + ":" + str(durmins).rjust(2,'0') + ":" + str(dursecs).rjust(2, '0') + " " + str(avgheartrate).ljust(5) + " " + str(maxheartrate).ljust(5) + " " + avgspeed + " " + maxspeed + "\n")
+		file.write(str(date) + " : " + distance.ljust(5) + "mi " + pace.ljust(11) + "" + str(durhours).rjust(2, '0') + ":" + str(durmins).rjust(2,'0') + ":" + str(dursecs).rjust(2, '0') + " " + str(avgheartrate).ljust(5) + " " + str(maxheartrate).ljust(5) + " " + avgspeed.ljust(5) + " " + maxspeed.ljust(5) + " " + str(avgcadence).ljust(6) + " " + str(elevationgain).ljust(6) + "\n")
 
 file.close()
