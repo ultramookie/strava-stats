@@ -19,18 +19,28 @@ url = "/v3/activities/?access_token=" + ACCESS_TOKEN + "&per_page=" + str(per_pa
 es = Elasticsearch(elastichost)
 
 while num_activities == per_page:
-	page=page+1
-	url = "/v3/activities/?access_token=" + ACCESS_TOKEN + "&per_page=" + str(per_page) + "&page=" + str(page)
-	req = urllib2.Request('%s%s' % (base_url, url), None)
-	r = urllib2.urlopen(req)
-	resp = json.loads(r.read())
-	r.close()
-	num_activities = len(resp)
+  page=page+1
+  url = "/v3/activities/?access_token=" + ACCESS_TOKEN + "&per_page=" + str(per_page) + "&page=" + str(page)
+  req = urllib2.Request('%s%s' % (base_url, url), None)
+  r = urllib2.urlopen(req)
+  resp = json.loads(r.read())
+  r.close()
+  num_activities = len(resp)
 
-	for activity in resp:
-		id = activity.get('id')
-		start_time = time.strptime(activity.get('start_date_local'), '%Y-%m-%dT%H:%M:%SZ')
-		month = time.strftime('%m', start_time)
-		year = time.strftime('%Y', start_time)
-		index = 'strava-' + year + '-' + month
-		es.index(index=index, doc_type="activity", id=id, body=activity)
+  for activity in resp:
+    id = activity.get('id')
+    start_time = time.strptime(activity.get('start_date_local'), '%Y-%m-%dT%H:%M:%SZ')
+    month = time.strftime('%m', start_time)
+    year = time.strftime('%Y', start_time)
+    index = 'strava-' + year + '-' + month
+    if activity.get('start_latlng'):
+      start_list = activity.get('start_latlng')
+      start_latlng = '{"lat": ' + str(start_list[0]) + "," + '"lon": ' + str(start_list[1]) + '}'
+      start_json = json.loads(start_latlng)
+      activity['start_latlng'] = start_json
+    if activity.get('end_latlng'):
+      end_list = activity.get('end_latlng')
+      end_latlng = '{"lat": ' + str(end_list[0]) + "," + '"lon": ' + str(end_list[1]) + '}'
+      end_json = json.loads(end_latlng)
+      activity['end_latlng'] = end_json
+    es.index(index=index, doc_type="activity", id=id, body=activity)
