@@ -2,167 +2,169 @@
   "template" : "strava-*",
   "mappings" : {
     "activity" : {
-      "id" : {
-        "type" : "integer"
-      },
-      "resource_state" : {
-        "type" : "integer"
-      },
-      "external_id" : {
-        "type" : "string"
-      },
-      "external_id" : {
-        "type" : "string"
-      },
-      "upload_id" : {
-        "type" : "integer"
-      },
-      "athlete" : {
-        "type" : "object"
-      },
-      "name" : {
-        "type" : "string"
-      },
-      "description" : {
-        "type" : "string"
-      },
-      "distance" : {
-        "type" : "float"
-      },
-      "moving_time" : {
-        "type" : "integer"
-      },
-      "elapsed_time" : {
-        "type" : "integer"
-      },
-      "total_elevation_gain" : {
-        "type" : "float"
-      },
-      "type" : {
-        "type" : "string"
-      },
-      "start_date" : {
-        "type" : "date"
-      },
-      "start_date_local" : {
-        "type" : "date"
-      },
-      "timezone" : {
-        "type" : "string"
-      },
-      "start_latlng" : {
-        "type" : "geo_point"
-      },
-      "end_latlng" : {
-        "type" : "geo_point"
-      },
-      "location_city" : {
-        "type" : "string"
-      },
-      "location_state" : {
-        "type" : "string"
-      },
-      "location_country" : {
-        "type" : "string"
-      },
-      "achievement_count" : {
-        "type" : "integer"
-      },
-      "kudos_count" : {
-        "type" : "integer"
-      },
-      "comment_count" : {
-        "type" : "integer"
-      },
-      "athlete_count" : {
-        "type" : "integer"
-      },
-      "photo_count" : {
-        "type" : "integer"
-      },
-      "total_photo_count" : {
-        "type" : "integer"
-      },
-      "photos" : {
-        "type" : "object"
-      },
-      "map" : {
-        "type" : "object"
-      },
-      "trainer" : {
-        "type" : "boolean"
-      },
-      "commute" : {
-        "type" : "boolean"
-      },
-      "manual" : {
-        "type" : "boolean"
-      },
-      "private" : {
-        "type" : "boolean"
-      },
-      "embed_token" : {
-        "type" : "string"
-      },
-      "flagged" : {
-        "type" : "boolean"
-      },
-      "workout_type" : {
-        "type" : "integer"
-      },
-      "gear_id" : {
-        "type" : "string"
-      },
-      "gear" : {
-        "type" : "object"
-      },
-      "average_speed" : {
-        "type" : "float"
-      },
-      "max_speed" : {
-        "type" : "float"
-      },
-      "average_cadence" : {
-        "type" : "float"
-      },
-      "average_temp" : {
-        "type" : "float"
-      },
-      "average_watts" : {
-        "type" : "float"
-      },
-      "weighted_average_watts" : {
-        "type" : "integer"
-      },
-      "kilojoules" : {
-        "type" : "float"
-      },
-      "device_watts" : {
-        "type" : "boolean"
-      },
-      "average_heartrate" : {
-        "type" : "float"
-      },
-      "max_heartrate" : {
-        "type" : "integer"
-      },
-      "calories" : {
-        "type" : "float"
-      },
-      "has_kudoed" : {
-        "type" : "boolean"
-      },
-      "segment_efforts" : {
-        "type" : "nested"
-      },
-      "spilts_metric" : {
-        "type" : "nested"
-      },
-      "splits_standard" : {
-        "type" : "nested"
-      },
-      "best_efforts" : {
-        "type" : "nested"
+      "properties" : {
+        "id" : {
+          "type" : "integer"
+        },
+        "resource_state" : {
+          "type" : "integer"
+        },
+        "external_id" : {
+          "type" : "string"
+        },
+        "external_id" : {
+          "type" : "string"
+        },
+        "upload_id" : {
+          "type" : "integer"
+        },
+        "athlete" : {
+          "type" : "object"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "distance" : {
+          "type" : "float"
+        },
+        "moving_time" : {
+          "type" : "integer"
+        },
+        "elapsed_time" : {
+          "type" : "integer"
+        },
+        "total_elevation_gain" : {
+          "type" : "float"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "start_date" : {
+          "type" : "date"
+        },
+        "start_date_local" : {
+          "type" : "date"
+        },
+        "timezone" : {
+          "type" : "string"
+        },
+        "start_latlng" : {
+          "type" : "geo_point"
+        },
+        "end_latlng" : {
+          "type" : "geo_point"
+        },
+        "location_city" : {
+          "type" : "string"
+        },
+        "location_state" : {
+          "type" : "string"
+        },
+        "location_country" : {
+          "type" : "string"
+        },
+        "achievement_count" : {
+          "type" : "integer"
+        },
+        "kudos_count" : {
+          "type" : "integer"
+        },
+        "comment_count" : {
+          "type" : "integer"
+        },
+        "athlete_count" : {
+          "type" : "integer"
+        },
+        "photo_count" : {
+          "type" : "integer"
+        },
+        "total_photo_count" : {
+          "type" : "integer"
+        },
+        "photos" : {
+          "type" : "object"
+        },
+        "map" : {
+          "type" : "object"
+        },
+        "trainer" : {
+          "type" : "boolean"
+        },
+        "commute" : {
+          "type" : "boolean"
+        },
+        "manual" : {
+          "type" : "boolean"
+        },
+        "private" : {
+          "type" : "boolean"
+        },
+        "embed_token" : {
+          "type" : "string"
+        },
+        "flagged" : {
+          "type" : "boolean"
+        },
+        "workout_type" : {
+          "type" : "integer"
+        },
+        "gear_id" : {
+          "type" : "string"
+        },
+        "gear" : {
+          "type" : "object"
+        },
+        "average_speed" : {
+          "type" : "float"
+        },
+        "max_speed" : {
+          "type" : "float"
+        },
+        "average_cadence" : {
+          "type" : "float"
+        },
+        "average_temp" : {
+          "type" : "float"
+        },
+        "average_watts" : {
+          "type" : "float"
+        },
+        "weighted_average_watts" : {
+          "type" : "integer"
+        },
+        "kilojoules" : {
+          "type" : "float"
+        },
+        "device_watts" : {
+          "type" : "boolean"
+        },
+        "average_heartrate" : {
+          "type" : "float"
+        },
+        "max_heartrate" : {
+         "type" : "integer"
+        },
+        "calories" : {
+          "type" : "float"
+        },
+        "has_kudoed" : {
+          "type" : "boolean"
+        },
+        "segment_efforts" : {
+          "type" : "nested"
+        },
+        "spilts_metric" : {
+          "type" : "nested"
+        },
+        "splits_standard" : {
+          "type" : "nested"
+        },
+        "best_efforts" : {
+          "type" : "nested"
+        }
       }
     }
   }
