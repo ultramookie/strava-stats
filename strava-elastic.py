@@ -35,8 +35,19 @@ while num_activities == per_page:
     index = 'strava-' + year + '-' + month
     miles = float(activity.get('distance')) * 0.000621371
     feet = float(activity.get('total_elevation_gain')) * 3.28084
+    avg_mph = float(activity.get('average_speed')) * 2.23694
+    avg_pace = 60 / avg_mph
+    max_mph = float(activity.get('max_speed')) * 2.23694
+    max_pace = 60 / avg_mph
     activity['distance_mileage'] = miles
     activity['total_elevation_gain_feet'] = feet
+    activity['average_speed_mph'] = avg_mph
+    activity['average_pace'] = avg_pace
+    activity['max_speed_mph'] = max_mph
+    activity['max_pace'] = max_pace
+    if activity.get('average_temp'):
+      avg_f = (float(activity.get('average_temp')) * 1.8) + 32
+      activity['average_temp_f'] = avg_f
     if activity.get('start_latlng'):
       start_list = activity.get('start_latlng')
       start_latlng = '{"lat": ' + str(start_list[0]) + "," + '"lon": ' + str(start_list[1]) + '}'

@@ -126,13 +126,28 @@
         "average_speed" : {
           "type" : "float"
         },
+        "average_speed_mph" : {
+          "type" : "float"
+        },
+        "average_pace" : {
+          "type" : "float"
+        },
         "max_speed" : {
+          "type" : "float"
+        },
+        "max_speed_mph" : {
+          "type" : "float"
+        },
+        "max_pace" : {
           "type" : "float"
         },
         "average_cadence" : {
           "type" : "float"
         },
         "average_temp" : {
+          "type" : "float"
+        },
+        "average_temp_f" : {
           "type" : "float"
         },
         "average_watts" : {
