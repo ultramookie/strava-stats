@@ -5,7 +5,7 @@ import urllib
 import urllib2
 import time
 from elasticsearch import Elasticsearch
- 
+
 ACCESS_TOKEN = ''
 
 elastichost='localhost:9200'
@@ -33,6 +33,10 @@ while num_activities == per_page:
     month = time.strftime('%m', start_time)
     year = time.strftime('%Y', start_time)
     index = 'strava-' + year + '-' + month
+    miles = float(activity.get('distance')) * 0.000621371
+    feet = float(activity.get('total_elevation_gain')) * 3.28084
+    activity['distance_mileage'] = miles
+    activity['total_elevation_gain_feet'] = feet
     if activity.get('start_latlng'):
       start_list = activity.get('start_latlng')
       start_latlng = '{"lat": ' + str(start_list[0]) + "," + '"lon": ' + str(start_list[1]) + '}'

@@ -30,6 +30,9 @@
         "distance" : {
           "type" : "float"
         },
+        "distance_mileage" : {
+          "type" : "float"
+        },
         "moving_time" : {
           "type" : "integer"
         },
@@ -37,6 +40,9 @@
           "type" : "integer"
         },
         "total_elevation_gain" : {
+          "type" : "float"
+        },
+        "total_elevation_gain_feet" : {
           "type" : "float"
         },
         "type" : {
