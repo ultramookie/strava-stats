@@ -52,7 +52,7 @@ while num_activities == per_page:
 			avgcadence = activity.get('average_cadence')
 			avgheartrate = activity.get('average_heartrate')
 			maxheartrate = activity.get('max_heartrate')
-			name = activity.get('name')
+			name = activity.get('name').encode('utf-8')
 			avgspeed = '%.2f' % round(float(activity.get('average_speed') * 2.2369362920544),2)
 			maxspeed = '%.2f' % round(float(activity.get('max_speed') * 2.2369362920544),2)
 			# convert from km to mi and round
